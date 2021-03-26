@@ -173,5 +173,4 @@ class LaravelVehapi
     {
         return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-logos/img/'.$make), true);
     }
-
 }

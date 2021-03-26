@@ -7,7 +7,6 @@ use Orchestra\Testbench\TestCase;
 
 class ExampleTest extends TestCase
 {
-
     protected function getPackageProviders($app): array
     {
         return [LaravelVehapiServiceProvider::class];

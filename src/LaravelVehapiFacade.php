@@ -17,5 +17,4 @@ class LaravelVehapiFacade extends Facade
     {
         return 'laravel-vehapi';
     }
-
 }
