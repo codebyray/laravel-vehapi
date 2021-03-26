@@ -39,12 +39,12 @@ class LaravelVehapi
     /**
      * Return the range of years as supplied.
      *
-     * @param $minYear
-     * @param $maxYear
+     * @param int $minYear
+     * @param int $maxYear
      * @param string $sort
      * @return mixed
      */
-    public function getYearsRange($minYear, $maxYear, $sort = 'asc')
+    public function getYearsRange(int $minYear, int $maxYear, $sort = 'asc')
     {
         return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/range/years/'.$minYear.'/'.$maxYear.'/'.$sort), true);
     }
@@ -52,108 +52,116 @@ class LaravelVehapi
     /**
      * Return all makes available.
      *
+     * @param string $sort
      * @return mixed
      */
-    public function getAllMakes()
+    public function getAllMakes($sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/all/car/makes'), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/all/car/makes/'.$sort), true);
     }
 
     /**
      * Return the makes available for the year supplied.
      *
-     * @param $year
+     * @param int $year
+     * @param string $sort
      * @return mixed
      */
-    public function getMakesByYear($year)
+    public function getMakesByYear(int $year, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/makes/'.$year), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/makes/'.$year.'/'.$sort), true);
     }
 
     /**
      * Return the range of years as supplied.
      *
-     * @param $minYear
-     * @param $maxYear
+     * @param int $minYear
+     * @param int $maxYear
+     * @param string $sort
      * @return mixed
      */
-    public function getMakesByYearsRange($minYear, $maxYear)
+    public function getMakesByYearsRange(int $minYear, int $maxYear, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/makes/in-range/'.$minYear.'/'.$maxYear), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/makes/in-range/'.$minYear.'/'.$maxYear.'/'.$sort), true);
     }
 
     /**
      * Return the models available for the make supplied.
      *
-     * @param $make
+     * @param string $make
+     * @param string $sort
      * @return mixed
      */
-    public function getAllModelsByMake($make)
+    public function getAllModelsByMake(string $make, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/all/car/models/'.$make), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/all/car/models/'.$make.'/'.$sort), true);
     }
 
     /**
      * Return the models available for the year & make supplied.
      *
-     * @param $year
-     * @param $make
+     * @param int $year
+     * @param string $make
+     * @param string $sort
      * @return mixed
      */
-    public function getModelsByYearAndMake($year, $make)
+    public function getModelsByYearAndMake(int $year, string $make, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/models/'.$year.'/'.$make), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/models/'.$year.'/'.$make.'/'.$sort), true);
     }
 
     /**
      * Return the trims available for the year, make & model supplied.
      *
-     * @param $year
-     * @param $make
-     * @param $model
+     * @param int $year
+     * @param string $make
+     * @param string $model
+     * @param string $sort
      * @return mixed
      */
-    public function getTrimsByYearMakeAndModel($year, $make, $model)
+    public function getTrimsByYearMakeAndModel(int $year, string $make, string $model, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/trims/'.$year.'/'.$make.'/'.$model), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/trims/'.$year.'/'.$make.'/'.$model.'/'.$sort), true);
     }
 
     /**
      * Return the transmissions available for the year, make,model & trim supplied.
      *
-     * @param $year
-     * @param $make
-     * @param $model
-     * @param $trim
+     * @param int $year
+     * @param string $make
+     * @param string $model
+     * @param string $trim
+     * @param string $sort
      * @return mixed
      */
-    public function getTransmissionsByYearMakeModelAndTrim($year, $make, $model, $trim)
+    public function getTransmissionsByYearMakeModelAndTrim(int $year, string $make, string $model, string $trim, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/transmissions/'.$year.'/'.$make.'/'.$model.'/'.$trim), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/transmissions/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$sort), true);
     }
 
     /**
      * Return engines available for the year, make, model & transmission supplied.
      *
-     * @param $year
-     * @param $make
-     * @param $model
-     * @param $trim
-     * @param $transmission
+     * @param int $year
+     * @param string $make
+     * @param string $model
+     * @param string $trim
+     * @param string $transmission
+     * @param string $sort
      * @return mixed
      */
-    public function getEnginesByYearMakeModelTrimAndTransmission($year, $make, $model, $trim, $transmission)
+    public function getEnginesByYearMakeModelTrimAndTransmission(int $year, string $make, string $model, string $trim, string $transmission, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/engines/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$transmission), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/engines/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$transmission.'/'.$sort), true);
     }
 
     /**
      * Return the logo for the make supplied.
      *
-     * @param $make
+     * @param string $make
      * @return mixed
      */
-    public function getMakeLogo($make)
+    public function getMakeLogo(string $make)
     {
         return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-logos/img/'.$make), true);
     }
