@@ -54,7 +54,7 @@ class LaravelVehapiServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('laravel-vehapi', function () {
-            return new LaravelVehapi;
+            return new LaravelVehapi();
         });
     }
 }

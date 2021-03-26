@@ -29,6 +29,7 @@ class LaravelVehapi
      * Return all years available.
      *
      * @param string $sort
+     *
      * @return mixed
      */
     public function getAllYears($sort = 'asc')
@@ -42,6 +43,7 @@ class LaravelVehapi
      * @param int $minYear
      * @param int $maxYear
      * @param string $sort
+     *
      * @return mixed
      */
     public function getYearsRange(int $minYear, int $maxYear, $sort = 'asc')
@@ -53,6 +55,7 @@ class LaravelVehapi
      * Return all makes available.
      *
      * @param string $sort
+     *
      * @return mixed
      */
     public function getAllMakes($sort = 'asc')
@@ -65,6 +68,7 @@ class LaravelVehapi
      *
      * @param int $year
      * @param string $sort
+     *
      * @return mixed
      */
     public function getMakesByYear(int $year, $sort = 'asc')
@@ -78,6 +82,7 @@ class LaravelVehapi
      * @param int $minYear
      * @param int $maxYear
      * @param string $sort
+     *
      * @return mixed
      */
     public function getMakesByYearsRange(int $minYear, int $maxYear, $sort = 'asc')
@@ -90,6 +95,7 @@ class LaravelVehapi
      *
      * @param string $make
      * @param string $sort
+     *
      * @return mixed
      */
     public function getAllModelsByMake(string $make, $sort = 'asc')
@@ -103,6 +109,7 @@ class LaravelVehapi
      * @param int $year
      * @param string $make
      * @param string $sort
+     *
      * @return mixed
      */
     public function getModelsByYearAndMake(int $year, string $make, $sort = 'asc')
@@ -116,6 +123,7 @@ class LaravelVehapi
      * @param int $year
      * @param string $make
      * @param string $model
+     *
      * @return mixed
      */
     public function getTrimsByYearMakeAndModel(int $year, string $make, string $model)
@@ -130,6 +138,7 @@ class LaravelVehapi
      * @param string $make
      * @param string $model
      * @param string $trim
+     *
      * @return mixed
      */
     public function getTransmissionsByYearMakeModelAndTrim(int $year, string $make, string $model, string $trim)
@@ -145,6 +154,7 @@ class LaravelVehapi
      * @param string $model
      * @param string $trim
      * @param string $transmission
+     *
      * @return mixed
      */
     public function getEnginesByYearMakeModelTrimAndTransmission(int $year, string $make, string $model, string $trim, string $transmission)
@@ -156,6 +166,7 @@ class LaravelVehapi
      * Return the logo for the make supplied.
      *
      * @param string $make
+     *
      * @return mixed
      */
     public function getMakeLogo(string $make)

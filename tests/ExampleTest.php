@@ -2,8 +2,8 @@
 
 namespace Codebyray\LaravelVehapi\Tests;
 
-use Orchestra\Testbench\TestCase;
 use Codebyray\LaravelVehapi\LaravelVehapiServiceProvider;
+use Orchestra\Testbench\TestCase;
 
 class ExampleTest extends TestCase
 {
