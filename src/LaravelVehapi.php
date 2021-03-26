@@ -116,12 +116,11 @@ class LaravelVehapi
      * @param int $year
      * @param string $make
      * @param string $model
-     * @param string $sort
      * @return mixed
      */
-    public function getTrimsByYearMakeAndModel(int $year, string $make, string $model, $sort = 'asc')
+    public function getTrimsByYearMakeAndModel(int $year, string $make, string $model)
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/trims/'.$year.'/'.$make.'/'.$model.'/'.$sort), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/trims/'.$year.'/'.$make.'/'.$model), true);
     }
 
     /**
@@ -131,12 +130,11 @@ class LaravelVehapi
      * @param string $make
      * @param string $model
      * @param string $trim
-     * @param string $sort
      * @return mixed
      */
-    public function getTransmissionsByYearMakeModelAndTrim(int $year, string $make, string $model, string $trim, $sort = 'asc')
+    public function getTransmissionsByYearMakeModelAndTrim(int $year, string $make, string $model, string $trim)
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/transmissions/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$sort), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/transmissions/'.$year.'/'.$make.'/'.$model.'/'.$trim), true);
     }
 
     /**
@@ -147,12 +145,11 @@ class LaravelVehapi
      * @param string $model
      * @param string $trim
      * @param string $transmission
-     * @param string $sort
      * @return mixed
      */
-    public function getEnginesByYearMakeModelTrimAndTransmission(int $year, string $make, string $model, string $trim, string $transmission, $sort = 'asc')
+    public function getEnginesByYearMakeModelTrimAndTransmission(int $year, string $make, string $model, string $trim, string $transmission)
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/engines/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$transmission.'/'.$sort), true);
+        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/engines/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$transmission), true);
     }
 
     /**
