@@ -2,6 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/codebyray/laravel-vehapi.svg?style=flat-square)](https://packagist.org/packages/codebyray/laravel-vehapi)
 [![Build Status](https://img.shields.io/travis/codebyray/laravel-vehapi/master.svg?style=flat-square)](https://travis-ci.org/codebyray/laravel-vehapi)
+[![StyleCI](https://github.styleci.io/repos/351683689/shield?branch=master)](https://github.styleci.io/repos/351683689?branch=master)
 [![Quality Score](https://img.shields.io/scrutinizer/g/codebyray/laravel-vehapi.svg?style=flat-square)](https://scrutinizer-ci.com/g/codebyray/laravel-vehapi)
 [![Total Downloads](https://img.shields.io/packagist/dt/codebyray/laravel-vehapi.svg?style=flat-square)](https://packagist.org/packages/codebyray/laravel-vehapi)
 
