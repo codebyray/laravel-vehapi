@@ -1,0 +1,54 @@
+{
+    "name": "codebyray/laravel-vehapi",
+    "description": "Vehicle Information API Laravel Package",
+    "keywords": [
+        "codebyray",
+        "laravel-vehapi"
+    ],
+    "homepage": "https://github.com/codebyray/laravel-vehapi",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "CodebyRay",
+            "email": "dev@codebyray.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codebyray\\LaravelVehapi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codebyray\\LaravelVehapi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codebyray\\LaravelVehapi\\LaravelVehapiServiceProvider"
+            ],
+            "aliases": {
+                "LaravelVehapi": "Codebyray\\LaravelVehapi\\LaravelVehapiFacade"
+            }
+        }
+    }
+}
