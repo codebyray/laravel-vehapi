@@ -16,6 +16,11 @@ class LaravelVehapi
      */
     private $vehApiVersion;
 
+      /**
+     * @var boolean
+     */
+    private $vehCheckSslCert;
+
     /**
      * Create a new controller instance.
      */
