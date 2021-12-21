@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":259:{a:2:{s:7:"defects";a:1:{s:58:"Codebyray\LaravelVehapi\Tests\EndpointTest::test_get_years";i:3;}s:5:"times";a:2:{s:55:"Codebyray\LaravelVehapi\Tests\ExampleTest::true_is_true";d:0.079;s:58:"Codebyray\LaravelVehapi\Tests\EndpointTest::test_get_years";d:0.105;}}}

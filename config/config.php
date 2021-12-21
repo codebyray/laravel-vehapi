@@ -15,4 +15,9 @@ return [
      * Changing versions is easy, just change the version number below to switch between versions.
      */
     'veh_api_version' => env('VEH_API_VERSION', 'v1'),
+
+    /**
+     * Verify SSL cert. You should keep this as false if you are developing and testing locally.
+     */
+    'veh_check_ssl_cert' => env('VEH_CHECK_SSL_CERT', true),
 ];

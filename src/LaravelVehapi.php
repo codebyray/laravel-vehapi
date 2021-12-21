@@ -23,6 +23,7 @@ class LaravelVehapi
     {
         $this->vehApiToken = config('laravel-vehapi.veh_api_token', null);
         $this->vehApiVersion = config('laravel-vehapi.veh_api_version', null);
+        $this->vehCheckSslCert = config('laravel-vehapi.veh_check_ssl_cert', true);
     }
 
     /**
@@ -34,7 +35,11 @@ class LaravelVehapi
      */
     public function getAllYears($sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/years/'.$sort), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/years/'.$sort), true);
     }
 
     /**
@@ -48,7 +53,11 @@ class LaravelVehapi
      */
     public function getYearsRange(int $minYear, int $maxYear, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/range/years/'.$minYear.'/'.$maxYear.'/'.$sort), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/range/years/'.$minYear.'/'.$maxYear.'/'.$sort), true);
     }
 
     /**
@@ -60,7 +69,11 @@ class LaravelVehapi
      */
     public function getAllMakes($sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/all/car/makes/'.$sort), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/all/car/makes/'.$sort), true);
     }
 
     /**
@@ -73,7 +86,11 @@ class LaravelVehapi
      */
     public function getMakesByYear(int $year, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/makes/'.$year.'/'.$sort), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/makes/'.$year.'/'.$sort), true);
     }
 
     /**
@@ -87,7 +104,11 @@ class LaravelVehapi
      */
     public function getMakesByYearsRange(int $minYear, int $maxYear, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/makes/in-range/'.$minYear.'/'.$maxYear.'/'.$sort), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/makes/in-range/'.$minYear.'/'.$maxYear.'/'.$sort), true);
     }
 
     /**
@@ -100,7 +121,11 @@ class LaravelVehapi
      */
     public function getAllModelsByMake(string $make, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/all/car/models/'.$make.'/'.$sort), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+        ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/all/car/models/'.$make.'/'.$sort), true);
     }
 
     /**
@@ -114,7 +139,11 @@ class LaravelVehapi
      */
     public function getModelsByYearAndMake(int $year, string $make, $sort = 'asc')
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/models/'.$year.'/'.$make.'/'.$sort), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/models/'.$year.'/'.$make.'/'.$sort), true);
     }
 
     /**
@@ -128,7 +157,11 @@ class LaravelVehapi
      */
     public function getTrimsByYearMakeAndModel(int $year, string $make, string $model)
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/trims/'.$year.'/'.$make.'/'.$model), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/trims/'.$year.'/'.$make.'/'.$model), true);
     }
 
     /**
@@ -143,7 +176,11 @@ class LaravelVehapi
      */
     public function getTransmissionsByYearMakeModelAndTrim(int $year, string $make, string $model, string $trim)
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/transmissions/'.$year.'/'.$make.'/'.$model.'/'.$trim), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/transmissions/'.$year.'/'.$make.'/'.$model.'/'.$trim), true);
     }
 
     /**
@@ -159,7 +196,53 @@ class LaravelVehapi
      */
     public function getEnginesByYearMakeModelTrimAndTransmission(int $year, string $make, string $model, string $trim, string $transmission)
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/engines/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$transmission), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/engines/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$transmission), true);
+    }
+
+    /**
+     * Return options available for the year, make, model, transmission & engine supplied.
+     *
+     * @param int $year
+     * @param string $make
+     * @param string $model
+     * @param string $trim
+     * @param string $transmission
+     * @param string $engine
+     *
+     * @return mixed
+     */
+    public function getOptionsByYearMakeModelTrimTransmissionAndEngine(int $year, string $make, string $model, string $trim, string $transmission, string $engine)
+    {
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/options/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$transmission.'/'.$engine), true);
+    }
+
+    /**
+     * Return wheels available for the year, make, model, transmission & engine supplied.
+     *
+     * @param int $year
+     * @param string $make
+     * @param string $model
+     * @param string $trim
+     * @param string $transmission
+     * @param string $engine
+     *
+     * @return mixed
+     */
+    public function getWheelsByYearMakeModelTrimTransmissionAndEngine(int $year, string $make, string $model, string $trim, string $transmission, string $engine)
+    {
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-lists/get/car/wheels/'.$year.'/'.$make.'/'.$model.'/'.$trim.'/'.$transmission.'/'.$engine), true);
     }
 
     /**
@@ -171,6 +254,10 @@ class LaravelVehapi
      */
     public function getMakeLogo(string $make)
     {
-        return json_decode(Http::withToken($this->vehApiToken)->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-logos/img/'.$make), true);
+        return json_decode(Http::withOptions([
+            'verify' => $this->vehCheckSslCert
+            ])
+            ->withToken($this->vehApiToken)
+            ->get('https://vehapi.com/api/'.$this->vehApiVersion.'/car-logos/img/'.$make), true);
     }
 }

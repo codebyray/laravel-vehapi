@@ -35,7 +35,7 @@ php artisan vendor:publish --provider="Codebyray\LaravelVehapi\LaravelVehapiServ
 ```
 
 ## Setup .env file
-Add your API token & API version to your .env file:
+Add your API token, API version & API SSL check to your .env file:
 > NOTE: API version will default to v1, you DO NOT need to specify the version unless you are using a different 
 > version of Vehicle Info API. API token is required. However, it can be entered in your .env file (recommended), or the published
 > config file.
@@ -43,6 +43,7 @@ Add your API token & API version to your .env file:
 ```dotenv
 VEH_API_TOKEN=YOUR_VEH_API_TOKEN
 VEH_API_VERSION=v1
+VEH_CHECK_SSL_CERT=true // Defaults to true. Change to false if testing locally.
 ```
 ## Usage
 
@@ -203,6 +204,52 @@ $vehEngines = LaravelVehapi::getEnginesByYearMakeModelTrimAndTransmission(2015, 
 $vehEngines = json_encode(LaravelVehapi::getEnginesByYearMakeModelTrimAndTransmission(2015, 'Acura', 'MDX', 'FWD', '6-Speed Automatic'));
 ```
 
+Let's get all the wheel options available for a specific year, make, model, trim, transmission & engine
+```php
+/**
+ * Return wheels available for the year, make, model, transmission & engine supplied.
+ *
+ * @param int $year
+ * @param string $make
+ * @param string $model
+ * @param string $trim
+ * @param string $transmission
+ * @param string $engine
+ *
+ * @return mixed
+ */
+LaravelVehapi::getWheelsByYearMakeModelTrimTransmissionAndEngine($year, $make, $model, $trim, $transmission, $engine);
+
+// Returns associative array
+$vehWheels = LaravelVehapi::getWheelsByYearMakeModelTrimTransmissionAndEngine(2021, 'Acura', 'TLX', 'FWD', '10-Speed Automatic', '2.0L 272 hp I4');
+
+// Convert array to json format
+$vehWheels = json_encode(LaravelVehapi::getWheelsByYearMakeModelTrimTransmissionAndEngine(2021, 'Acura', 'TLX', 'FWD', '10-Speed Automatic', '2.0L 272 hp I4'));
+```
+
+Let's get all the vehicle options available for a specific year, make, model, trim, transmission & engine
+```php
+/**
+ * Return options available for the year, make, model, transmission & engine supplied.
+ *
+ * @param int $year
+ * @param string $make
+ * @param string $model
+ * @param string $trim
+ * @param string $transmission
+ * @param string $engine
+ *
+ * @return mixed
+ */
+LaravelVehapi::getOptionsByYearMakeModelTrimTransmissionAndEngine($year, $make, $model, $trim, $transmission, $engine);
+
+// Returns associative array
+$vehOptions = LaravelVehapi::getOptionsByYearMakeModelTrimTransmissionAndEngine(2021, 'Acura', 'TLX', 'FWD', '10-Speed Automatic', '2.0L 272 hp I4');
+
+// Convert array to json format
+$vehOptions = json_encode(LaravelVehapi::getOptionsByYearMakeModelTrimTransmissionAndEngine(2021, 'Acura', 'TLX', 'FWD', '10-Speed Automatic', '2.0L 272 hp I4'));
+```
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
@@ -216,7 +263,6 @@ If you discover any security related issues, please email dev@codebyray.com inst
 ## Credits
 
 - [CodebyRay](https://github.com/codebyray)
-- [All Contributors](../../contributors)
 
 ## License
 
